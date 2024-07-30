@@ -16,7 +16,10 @@ script:
     # Pull the pre-built Docker image
   - docker pull galcappdome/travis_plugin:latest
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -v $(pwd)/config.yml:/appdome/config.yml galcappdome/travis_plugin:latest /bin/bash -c "/appdome/entrypoint.sh"
+  - docker run -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output galcappdome/travis_plugin:latest /bin/bash -c "/appdome/entrypoint.sh"
+  - docker logs $(docker ps -ql)
+  - ls -l $(pwd)
+  - ls -l $(pwd)/output
 
 
 after_success:
