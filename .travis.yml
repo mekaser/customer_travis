@@ -21,6 +21,7 @@ script:
   - docker wait appdome_container
   - ls -l $(pwd)
   - ls -l $(pwd)/output
+#  -
 
 
 after_success:

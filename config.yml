@@ -10,7 +10,7 @@ appdome_build:
   BUILD_TO_TEST: "None"
   TEAM_ID: "None"
   APPDOME_SERVER_BASE_URL: "https://qamaster.dev.appdome.com/"
-#  KEYSTORE_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/appdome.keystore?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240729%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240729T081204Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=ecf60d6c781b24bdb1a282019b486d0aa2de1f1747dc3514dd9ca51fc40256eb"
+  KEYSTORE_FILE: "None"
 #  KEYSTORE_PASSWORD: "appdome"
 #  KEYSTORE_ALIAS: "appdome"
 #  KEYSTORE_KEY_PASSWORD: "appdome"
