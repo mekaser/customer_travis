@@ -13,9 +13,10 @@ services:
 
 script:
   - echo "Running Appdome Travis CI Plugin"
-  -
     # Pull the pre-built Docker image
   - docker pull galcappdome/travis_plugin:latest
+  - ls -l $(pwd)
+  - mkdir -p output files
   - ls -l $(pwd)
   - ls -l $(pwd)/output
   - chmod +x $(pwd)/*
