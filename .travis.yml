@@ -28,6 +28,7 @@ script:
   - ls -l $(pwd)
   - ls -l $(pwd)/output
   - ls -l $(pwd)/files
+  - ls -l ./output
 #  -
 
 
