@@ -13,15 +13,17 @@ services:
 
 script:
   - echo "Running Appdome Travis CI Plugin"
+  -
     # Pull the pre-built Docker image
   - docker pull galcappdome/travis_plugin:latest
   - ls -l $(pwd)
   - ls -l $(pwd)/output
-  - chmod +x $(pwd)/output
+  - chmod +x $(pwd)/*
   - ls -l $(pwd)/files
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
   - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files galcappdome/travis_plugin:latest /bin/bash -c "/appdome/trigger_travis_build.sh"
   - ls -l $(pwd)
+  - chown -R travis:travis output files
   - ls -l $(pwd)/output
   - docker wait appdome_container
   - docker logs appdome_container
