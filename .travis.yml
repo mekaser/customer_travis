@@ -29,7 +29,6 @@ script:
   - ls -l $(pwd)/output
   - ls -l $(pwd)/files
   - ls -l ./output
-#  -
 
 
 after_success:
