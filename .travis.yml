@@ -50,6 +50,7 @@ script:
   - ls -l
   - ls -l $(pwd)/output
   - ls -l $(pwd)/files
+  - ls -l $(pwd)
 #  - ls -l $(pwd)
 #  - ls -l $(pwd)/output
 #  - ls -l $(pwd)/files
