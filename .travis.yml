@@ -27,7 +27,7 @@ script:
   - chmod +x $(pwd)/*
   - ls -l $(pwd)/files
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v appdome_shared_volume:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
   - ls -l
 #  - chmod +x $(pwd)/*
 #  - chmod +x $(pwd)/appdome_shared_volume/output
