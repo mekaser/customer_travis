@@ -52,8 +52,10 @@ script:
   - ls -l $(pwd)/output
   - ls -l $(pwd)/files
   - ls -l $(pwd)
+  - docker run --rm -v appdome_shared_volume:/appdome/shared alpine sh -c "ls -l /appdome/shared; ls -l /appdome/shared/output; ls -l /appdome/shared/files"
   - docker run --rm -v appdome_shared_volume:/appdome/shared alpine sh -c "ls -l /appdome/shared"
   - docker run --rm -v appdome_shared_volume:/appdome/shared -v $(pwd):/host busybox cp -r /appdome/shared/output /host/
+  - docker run --rm -v appdome_shared_volume:/appdome/shared alpine sh -c "ls -l /appdome/shared; ls -l /appdome/shared/output; ls -l /appdome/shared/files"
   - ls -l
   - ls -l $(pwd)/output
   - ls -l $(pwd)/files
