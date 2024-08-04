@@ -45,6 +45,9 @@ script:
 #  - ls -l $(pwd)/files
   - docker wait appdome_container
   - docker logs appdome_container
+  - ls -l
+  - ls -l shared
+  - cat shared/test_file.txt
 #  - ls -l
 #  - mkdir -p $(pwd)/output
 #  - mkdir -p $(pwd)/files
