@@ -10,7 +10,7 @@ env:
 before_install:
   - echo "Creating Docker volume"
   - ls -l
-#  - docker volume create appdome_shared_volume
+  - docker volume create appdome_shared_volume
 #  - ls -l
 #  - pip install awscli
 #before_install:
@@ -33,12 +33,16 @@ script:
   - ls -l $(pwd)
 #  - ls -l $(pwd)/output
   - chmod +x $(pwd)/*
+  - echo "content of myfile.txt fro travis:"
+  - cat myfile.txt
 #  - ls -l $(pwd)/files
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v $(pwd)/myfile.txt:/app/myfile.txt -v shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
   - ls -l
   - ls -l shared
   - cat shared/test_file.txt
+  - echo "content of test_file.txt from the container before finished:"
+  - cat myfile.txt
 #  - chmod +x $(pwd)/*
 #  - chmod +x $(pwd)/appdome_shared_volume/output
 #  - chmod +x $(pwd)/appdome_shared_volume/output/*
@@ -51,10 +55,14 @@ script:
 ##  - chown -R travis:travis output files
 #  - ls -l $(pwd)/output
 #  - ls -l $(pwd)/files
+
   - docker wait appdome_container
   - docker logs appdome_container
   - ls -l
   - ls -l shared
+  - echo "content of test_file.txt from the container after finished:"
+  - cat myfile.txt
+  - cat shared/test_file.txt
 #  - ls -l appdome_shared_volume
   - cat shared/test_file.txt
   - cat shared/test_file.txt
@@ -71,7 +79,7 @@ script:
 #  - ls -l $(pwd)/files
 #  - ls -l $(pwd)
 #  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
-  - docker run --rm -v shared:/app/shared alpine sh -c "ls -l /app/shared"
+  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared"
   - ls -l
 #  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output /host/
 #  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
