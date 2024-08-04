@@ -62,6 +62,7 @@ script:
   - ls -l $(pwd)/shared/output
   - ls -l $(pwd)/shared/files
   - ls -l shared
+  - cat shared/test_file.txt
 #  - echo "content of test_file.txt from the container after finished:"
 #  - cat myfile.txt
 #  - cat shared/test_file.txt
