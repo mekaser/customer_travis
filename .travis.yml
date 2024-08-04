@@ -82,7 +82,8 @@ script:
 #  - ls -l $(pwd)/files
 #  - ls -l $(pwd)
 #  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
-  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l"
+  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app"
+  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; /app/trigger_travis_appdome.sh"
   - ls -l
   - ls -l $(pwd)/shared
   - ls -l $(pwd)/shared/output
