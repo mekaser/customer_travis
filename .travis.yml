@@ -23,7 +23,7 @@ script:
   # Load the Docker image
   - docker load -i travis_plugin_image.tar
     # Pull the pre-built Docker image
-  - docker pull galcappdome/travis_plugin:latest
+#  - docker pull galcappdome/travis_plugin:latest
   - ls -l $(pwd)
 #  - mkdir -p output files
   - ls -l $(pwd)
