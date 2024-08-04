@@ -8,6 +8,7 @@ before_install:
   - ls -l
   - docker volume create appdome_shared_volume
   - ls -l
+  - pip install awscli
 #before_install:
 #  - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 #  - sudo apt-get update
@@ -18,6 +19,9 @@ before_install:
 
 script:
   - echo "Running Appdome Travis CI Plugin"
+  - aws s3 cp s3://appdome-automation-vanilla-apps/Thomas/Gal/travis_plugin_image.tar .
+  # Load the Docker image
+  - docker load -i travis_plugin_image.tar
     # Pull the pre-built Docker image
   - docker pull galcappdome/travis_plugin:latest
   - ls -l $(pwd)
@@ -27,7 +31,7 @@ script:
   - chmod +x $(pwd)/*
   - ls -l $(pwd)/files
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v shared:app/shared -v appdome_shared_volume:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
   - ls -l
   - ls -l shared
   - cat shared/test_file.txt
@@ -47,6 +51,8 @@ script:
   - docker logs appdome_container
   - ls -l
   - ls -l shared
+  - ls -l appdome_shared_volume
+  - cat appdome_shared_volume/test_file.txt
   - cat shared/test_file.txt
 #  - ls -l
 #  - mkdir -p $(pwd)/output
