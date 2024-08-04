@@ -37,7 +37,7 @@ script:
   - cat myfile.txt
 #  - ls -l $(pwd)/files
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v $(pwd)/output:/app/output -v $(pwd)/myfile.txt:/app/myfile.txt -v $(pwd)/shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v $(pwd)/output:/app/output -v $(pwd)/myfile.txt:/app/myfile.txt -v $(pwd)/shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/trigger_travis_appdome.sh"
   - ls -l
   - ls -l shared
 #  - cat shared/test_file.txt
