@@ -29,6 +29,8 @@ script:
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
   - docker run -d --name appdome_container -v $(pwd)/config.yml:/app/config.yml -v shared:/app/shared galcappdome/travis_plugin:latest /bin/bash -c "/app/create_file.sh"
   - ls -l
+  - ls -l shared
+  - cat shared/test_file.txt
 #  - chmod +x $(pwd)/*
 #  - chmod +x $(pwd)/appdome_shared_volume/output
 #  - chmod +x $(pwd)/appdome_shared_volume/output/*
@@ -41,27 +43,27 @@ script:
 ##  - chown -R travis:travis output files
 #  - ls -l $(pwd)/output
 #  - ls -l $(pwd)/files
-  - docker wait appdome_container
-  - docker logs appdome_container
-  - ls -l
-  - mkdir -p $(pwd)/output
-  - mkdir -p $(pwd)/files
-  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared"
-  - mkdir -p $(pwd)/output
-  - mkdir -p $(pwd)/files
-  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output/* /host/output
-  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/files/* /host/files
-  - ls -l
-  - ls -l $(pwd)/output
-  - ls -l $(pwd)/files
-  - ls -l $(pwd)
-  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
-  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared"
-  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output /host/
-  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
-  - ls -l
-  - ls -l $(pwd)/output
-  - ls -l $(pwd)/files
+#  - docker wait appdome_container
+#  - docker logs appdome_container
+#  - ls -l
+#  - mkdir -p $(pwd)/output
+#  - mkdir -p $(pwd)/files
+#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared"
+#  - mkdir -p $(pwd)/output
+#  - mkdir -p $(pwd)/files
+#  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output/* /host/output
+#  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/files/* /host/files
+#  - ls -l
+#  - ls -l $(pwd)/output
+#  - ls -l $(pwd)/files
+#  - ls -l $(pwd)
+#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
+#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared"
+#  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output /host/
+#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
+#  - ls -l
+#  - ls -l $(pwd)/output
+#  - ls -l $(pwd)/files
 #  - ls -l $(pwd)
 #  - ls -l $(pwd)/output
 #  - ls -l $(pwd)/files
@@ -71,7 +73,9 @@ script:
 after_success:
   - echo "Build succeeded!"
   - ls -l $(pwd)/output
+  - ls -l $(pwd)/shared
 
 after_failure:
   - echo "Build failed!"
   - ls -l $(pwd)/output
+  - ls -l $(pwd)/shared
