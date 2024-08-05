@@ -27,7 +27,7 @@ script:
   # Load the Docker image
 #  - docker load -i travis_plugin_image.tar
     # Pull the pre-built Docker image
-  - docker pull galcappdome/travis_plugin:latest
+  - docker pull galcappdome/travis_plugin:latestlatest
   - ls -l $(pwd)
 #  - mkdir -p output files
   - ls -l $(pwd)
@@ -36,7 +36,7 @@ script:
   - echo "content of myfile.txt fro travis:"
   - cat myfile.txt
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files -v $(pwd)/myfile.txt:/appdome/myfile.txt galcappdome/travis_plugin:latest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files -v $(pwd)/myfile.txt:/appdome/myfile.txt galcappdome/travis_plugin:latestlatest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
   - ls -l
   - ls -l shared
   - ls -l files
