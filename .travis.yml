@@ -23,22 +23,13 @@ before_install:
 
 script:
   - echo "Running Appdome Travis CI Plugin"
-#  - aws s3 cp s3://appdome-automation-vanilla-apps/Thomas/Gal/travis_plugin_image.tar .
-  # Load the Docker image
-#  - docker load -i travis_plugin_image.tar
     # Pull the pre-built Docker image
-  - docker pull galcappdome/travis_plugin:latestlatest
+  - docker pull galcappdome/travis_plugin:latest
   - ls -l $(pwd)
-#  - mkdir -p output files
-  - ls -l $(pwd)
-#  - ls -l $(pwd)/output
   - chmod +x $(pwd)/*
-  - echo "content of myfile.txt fro travis:"
-  - cat myfile.txt
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files -v $(pwd)/myfile.txt:/appdome/myfile.txt galcappdome/travis_plugin:latestlatest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files galcappdome/travis_plugin:latest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
   - ls -l
-  - ls -l shared
   - ls -l files
   - cat shared/test_file.txt
 #  - echo "content of test_file.txt from the container before finished:"
@@ -57,38 +48,7 @@ script:
   - ls -l
   - docker wait appdome_container
   - docker logs appdome_container
-  - ls -l $(pwd)/shared
-  - ls -l $(pwd)/shared/output
-  - ls -l $(pwd)/shared/files
   - ls -l files
-  - ls -l shared
-  - cat shared/test_file.txt
-  - ls -l $(pwd)/shared/files/files
-#  - echo "content of test_file.txt from the container after finished:"
-#  - cat myfile.txt
-#  - cat shared/test_file.txt
-##  - ls -l appdome_shared_volume
-#  - cat shared/test_file.txt
-#  - cat shared/test_file.txt
-#  - ls -l
-#  - mkdir -p $(pwd)/output
-#  - mkdir -p $(pwd)/files
-#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared"
-#  - mkdir -p $(pwd)/output
-#  - mkdir -p $(pwd)/files
-#  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output/* /host/output
-#  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/files/* /host/files
-#  - ls -l
-#  - ls -l $(pwd)/output
-#  - ls -l $(pwd)/files
-#  - ls -l $(pwd)
-#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
-  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /appdome/shared; ls -l /appdome/files; ls -l /appdome/output"
-#  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /appdome/shared; /appdome/trigger_travis_appdome.sh"
-  - ls -l
-  - ls -l $(pwd)/shared
-  - ls -l $(pwd)/shared/output
-  - ls -l $(pwd)/shared/files
   - ls -l output
 #  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output /host/
 #  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
@@ -104,9 +64,9 @@ script:
 after_success:
   - echo "Build succeeded!"
   - ls -l $(pwd)/output
-  - ls -l $(pwd)/shared/output
+  - ls -l $(pwd)/files
 
 after_failure:
   - echo "Build failed!"
   - ls -l $(pwd)/output
-  - ls -l $(pwd)/shared/output
+  - ls -l $(pwd)/files
