@@ -32,7 +32,6 @@ script:
   - ls -l
   - ls -l files
 #  - echo "content of test_file.txt from the container before finished:"
-#  - cat myfile.txt
 #  - chmod +x $(pwd)/appdome_shared_volume/output
 #  - chmod +x $(pwd)/appdome_shared_volume/output/*
 #  - chmod +x $(pwd)/files
