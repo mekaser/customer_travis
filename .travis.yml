@@ -43,7 +43,6 @@ script:
   - cat shared/test_file.txt
 #  - echo "content of test_file.txt from the container before finished:"
 #  - cat myfile.txt
-#  - chmod +x $(pwd)/*
 #  - chmod +x $(pwd)/appdome_shared_volume/output
 #  - chmod +x $(pwd)/appdome_shared_volume/output/*
 #  - chmod +x $(pwd)/files
