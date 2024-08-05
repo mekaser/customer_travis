@@ -31,7 +31,6 @@ script:
   - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files galcappdome/travis_plugin:latest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
   - ls -l
   - ls -l files
-  - cat shared/test_file.txt
 #  - echo "content of test_file.txt from the container before finished:"
 #  - cat myfile.txt
 #  - chmod +x $(pwd)/appdome_shared_volume/output
