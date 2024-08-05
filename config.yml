@@ -2,7 +2,7 @@
 platform: "ANDROID"
 appdome_build:
   APPDOME_API_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWQ2Yzk4MzAtMTY5OC0xMWVmLWI2NDktMzM3Y2U1NzAwNDY3Iiwic2FsdCI6IjRmMjBjMTRjLWU1MWItNDQ3YS1hMjBjLTNmY2FiNGIxODFlYSJ9.AI5soWJrClObNzD1T0yy_hLWVfLGyam08fhQm5QT4qs"
-  APP_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Apps/FileFinder.aab?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240804%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240804T101756Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=9080a71a879144c91add3429fcb11847cfc85c136ae43930dbcb050a0eabcb98"
+  APP_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Apps/FileFinder.aab?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240805%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240805T063011Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=ccdf7517ed3ecec7082c6364553a1400d5def453887db2e983cc433d3055be71"
   SIGN_OPTIONS: "PRIVATE_SIGNING"
   FUSION_SET_ID: "37015ab0-226d-11ef-a76e-97c41ade4d80"
   SIGN_FINGERPRINT: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
