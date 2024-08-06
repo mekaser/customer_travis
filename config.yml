@@ -8,7 +8,6 @@ appdome_build:
   SIGN_FINGERPRINT: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
   SECOND_OUTPUT: "MeKaser_beton_travis_PRIVATE_SIGNING.ipa"
 #  BUILD_TO_TEST: "None"
-
 #  TEAM_ID: "None"
   APPDOME_SERVER_BASE_URL: "https://qamaster.dev.appdome.com/"
 #  KEYSTORE_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/appdome.keystore?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240805%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240805T063011Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=568d4b0337ca7c1d2bf88769a5302b4691cda4de961bbdcd3b970a27de3ed263"
