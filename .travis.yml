@@ -33,8 +33,10 @@ script:
   - ls -l files
 #  - echo "content of test_file.txt from the container before finished:"
   - ls -l
-  - docker wait appdome_container
+#  - docker wait appdome_container
+  - container_exit_code=$(docker wait appdome_container)
   - docker logs appdome_container
+  - if [ "$container_exit_code" -ne 0 ]; then echo "Container exited with code $container_exit_code"; exit $container_exit_code; fi
   - ls -l files
   - ls -l output
 #  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output /host/
