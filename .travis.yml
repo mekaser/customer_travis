@@ -23,6 +23,7 @@ before_install:
 
 script:
   - echo "Running Appdome Travis CI Plugin"
+  - false
     # Pull the pre-built Docker image
   - docker pull galcappdome/travis_plugin:mekaser_gamurlatest
   - ls -l $(pwd)
