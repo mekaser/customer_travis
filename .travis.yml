@@ -32,17 +32,6 @@ script:
   - ls -l
   - ls -l files
 #  - echo "content of test_file.txt from the container before finished:"
-#  - chmod +x $(pwd)/appdome_shared_volume/output
-#  - chmod +x $(pwd)/appdome_shared_volume/output/*
-#  - chmod +x $(pwd)/files
-#  - chmod +x $(pwd)/files/*
-#  - ls -l $(pwd)
-#  - ls -l $(pwd)/appdome_from_container
-#  - ls -l $(pwd)/appdome_from_container/output
-#  - ls -l $(pwd)/appdome_from_container/files
-##  - chown -R travis:travis output files
-#  - ls -l $(pwd)/output
-#  - ls -l $(pwd)/files
   - ls -l
   - docker wait appdome_container
   - docker logs appdome_container
@@ -50,13 +39,6 @@ script:
   - ls -l output
 #  - docker run --rm -v appdome_shared_volume:/app/shared -v $(pwd):/host busybox cp -r /app/shared/output /host/
 #  - docker run --rm -v appdome_shared_volume:/app/shared alpine sh -c "ls -l /app/shared; ls -l /app/shared/output; ls -l /app/shared/files"
-#  - ls -l
-#  - ls -l $(pwd)/output
-#  - ls -l $(pwd)/files
-#  - ls -l $(pwd)
-#  - ls -l $(pwd)/output
-#  - ls -l $(pwd)/files
-#  - ls -l ./output
 
 
 after_success:
