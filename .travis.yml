@@ -24,11 +24,11 @@ before_install:
 script:
   - echo "Running Appdome Travis CI Plugin"
     # Pull the pre-built Docker image
-  - docker pull galcappdome/travis_plugin:mekaserlatest
+  - docker pull galcappdome/travis_plugin:mekaser_latest
   - ls -l $(pwd)
   - chmod +x $(pwd)/*
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
-  - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files galcappdome/travis_plugin:mekaserlatest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
+  - docker run -d --name appdome_container -v $(pwd)/config.yml:/appdome/config.yml -v $(pwd)/output:/appdome/output -v $(pwd)/files:/appdome/files galcappdome/travis_plugin:mekaser_latest /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
   - ls -l
   - ls -l files
 #  - echo "content of test_file.txt from the container before finished:"
