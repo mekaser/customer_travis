@@ -1,11 +1,11 @@
 language: bash
 services:
   - docker
-env:
-  global:
-    - AWS_ACCESS_KEY_ID=****
-    - AWS_SECRET_ACCESS_KEY=***
-    - AWS_DEFAULT_REGION=us-west-1
+#env:
+#  global:
+#    - AWS_ACCESS_KEY_ID=****
+#    - AWS_SECRET_ACCESS_KEY=***
+#    - AWS_DEFAULT_REGION=us-west-1
 
 before_install:
   - echo "Creating Docker volume"
@@ -13,7 +13,7 @@ before_install:
 
 before_script:
   - echo "Generating env.list with all environment variables"
-  - env > env.list
+  - env | grep -v ' ' | grep -v '^_' > env.list> env.list
   - echo "Contents of env.list:"
   - cat env.list
 
