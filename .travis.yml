@@ -20,7 +20,7 @@ before_script:
 script:
   - echo "Running Appdome Travis CI Plugin"
     # Pull the pre-built Docker image
-  - docker pull galcappdome/travis_plugin:latest3
+  - docker pull galcappdome/travis_plugin:latest4
   - ls -l $(pwd)
   - chmod +x $(pwd)/*
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
@@ -30,7 +30,7 @@ script:
     -v $(pwd)/config.yml:/appdome/config.yml \
     -v $(pwd)/output:/appdome/output \
     -v $(pwd)/files:/appdome/files \
-    galcappdome/travis_plugin:latest3 /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
+    galcappdome/travis_plugin:latest4 /bin/bash -c "/appdome/trigger_travis_appdome_workflow.sh"
   - container_exit_code=$(docker wait appdome_container)
   - docker logs appdome_container
   - 'if [ "$container_exit_code" -ne 0 ]; then echo "Container exited with code $container_exit_code"; false; fi'
