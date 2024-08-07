@@ -11,6 +11,12 @@ before_install:
   - echo "Creating Docker volume"
   - docker volume create appdome_shared_volume
 
+before_script:
+  - echo "Generating env.list with all environment variables"
+  - env > env.list
+  - echo "Contents of env.list:"
+  - cat env.list
+
 script:
   - echo "Running Appdome Travis CI Plugin"
     # Pull the pre-built Docker image
