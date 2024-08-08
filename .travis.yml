@@ -20,7 +20,7 @@ before_script:
 script:
   - echo "Running Appdome Travis CI Plugin"
     # Pull the pre-built Docker image
-  - docker pull galcappdome/travis_plugin:latest4
+  - docker pull galcappdome/travis_plugin:latest
   - ls -l $(pwd)
   - chmod +x $(pwd)/*
   # Run the Docker container, mount the config.yml, and execute entrypoint.sh
