@@ -55,14 +55,14 @@ script:
 
   - echo "Build completed. Fetching results..."
   - |
-    # Replace with your logic to download or handle the build results.
+#     Replace with your logic to download or handle the build results.
     curl -s --request GET \
       --url "https://fusion.appdome.com/api/v1/download/$task_id" \
       --header "Authorization: $APPDOME_API_TOKEN" \
       --output "appdome_result.zip"
     
     unzip -l appdome_result.zip
-    # Save or process the build results as needed
+#     Save or process the build results as needed
 
 after_success:
   - echo "Build and API interaction succeeded!"
