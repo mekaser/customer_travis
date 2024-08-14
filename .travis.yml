@@ -77,13 +77,3 @@ script:
         | jq -r .status)
       echo "Current status: $status"
     done
-
-  - echo "Build completed. Fetching results..."
-  - |
-    curl -s --request GET \
-      --url "https://fusion.appdome.com/api/v1/download/$task_id" \
-      --header "Authorization: $APPDOME_API_TOKEN" \
-      --output "appdome_result.zip"
-    
-    unzip -l appdome_result.zip
-#
