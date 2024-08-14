@@ -13,8 +13,19 @@ script:
     publicLink=$(curl -s --request GET \
       --url "https://fusion.appdome.com/api/v1/upload-link" \
       --header "Authorization: $APPDOME_API_TOKEN")
-      
-    curl -s -X PUT "$(echo "$publicLink" | jq -r .url)" \
+    echo "Public Link Response: $publicLink"
+    
+    upload_url=$(echo "$publicLink" | jq -r .url)
+    file_id=$(echo "$publicLink" | jq -r .file_id)
+    echo "Upload URL: $upload_url"
+    echo "File ID: $file_id"
+    
+    if [ -z "$upload_url" ] || [ -z "$file_id" ]; then
+      echo "Failed to get upload URL or file ID"
+      exit 1
+    fi
+
+    curl -s -X PUT "$upload_url" \
       --header 'Content-Type: application/x-compressed-tar' \
       -T "./files/FileFinder(3).ipa"
     
@@ -24,22 +35,36 @@ script:
       --header "Authorization: $APPDOME_API_TOKEN" \
       --header 'content-type: multipart/form-data' \
       --form file_name="./files/FileFinder(3).ipa" \
-      --form file_app_id="$(echo "$publicLink" | jq -r .file_id)")
+      --form file_app_id="$file_id")
+    
+    app_id=$(echo "$app" | jq -r .id)
+    echo "App ID: $app_id"
+    
+    if [ -z "$app_id" ]; then
+      echo "Failed to retrieve app ID"
+      exit 1
+    fi
 
   - echo "Building app on Appdome Fusion Platform"
   - |
-    task_id=$(
-      curl -s --request POST \
-        --url "https://fusion.appdome.com/api/v1/tasks" \
-        --header "Authorization: $APPDOME_API_TOKEN" \
-        --header 'accept: application/json' \
-        --header 'content-type: multipart/form-data' \
-        --form action=fuse \
-        --form fusion_set_id="$FUSION_SET_ID" \
-        --form app_id="$(echo "$app" | jq -r .id)" \
-    )
-    task_id="$(echo "$task_id" | jq -r .task_id)"
+    task_id=$(curl -s --request POST \
+      --url "https://fusion.appdome.com/api/v1/tasks" \
+      --header "Authorization: $APPDOME_API_TOKEN" \
+      --header 'accept: application/json' \
+      --header 'content-type: multipart/form-data' \
+      --form action=fuse \
+      --form fusion_set_id="$FUSION_SET_ID" \
+      --form app_id="$app_id")
+    
+    echo "Task creation response: $task_id"
+    
+    task_id=$(echo "$task_id" | jq -r .task_id)
     echo "Task ID: $task_id"
+    
+    if [ -z "$task_id" ] || [ "$task_id" == "null" ]; then
+      echo "Failed to retrieve task ID"
+      exit 1
+    fi
 
   - echo "Waiting for build to complete"
   - |
@@ -55,18 +80,9 @@ script:
 
   - echo "Build completed. Fetching results..."
   - |
-
     curl -s --request GET \
       --url "https://fusion.appdome.com/api/v1/download/$task_id" \
       --header "Authorization: $APPDOME_API_TOKEN" \
       --output "appdome_result.zip"
     
     unzip -l appdome_result.zip
-
-
-after_success:
-  - echo "Build and API interaction succeeded!"
-  - ls -l
-
-after_failure:
-  - echo "Build failed!"
