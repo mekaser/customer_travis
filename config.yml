@@ -1,7 +1,7 @@
 # config.yaml
 platform: "IOS"
 appdome_build:
-  APP_FILE: "./files/FileFinder(3).ipa"
+  APP_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Apps/FileFinder.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T124834Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=ebdf5c1e395a8fb94aea7a6561659273a1026d96e031c48d4003f1ec5060036a"
   APPDOME_API_TOKEN: "env_var.APPDOME_API_TOKEN"
   SIGN_OPTIONS: "PRIVATE_SIGNING"
 #  FUSION_SET_ID: "11c97910-5320-11ef-9f3f-cd47153b0ee7"
@@ -14,12 +14,12 @@ appdome_build:
   APPDOME_SERVER_BASE_URL: "https://qamaster.dev.appdome.com/"
 #  KEYSTORE_FILE: "./files/appdome(5).keystore"
   OUTPUT_APP_NAME: "mekaser_PRIVATE_SIGNING"
-  KEYSTORE_PASSWORD: "appdome"
-  KEYSTORE_ALIAS: "appdome"
-  KEYSTORE_KEY_PASSWORD: "appdome"
+#  KEYSTORE_PASSWORD: "appdome"
+#  KEYSTORE_ALIAS: "appdome"
+#  KEYSTORE_KEY_PASSWORD: "appdome"
   BUILD_WITH_LOGS: "true"
-  MOBILE_PROVISION_PROFILE_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Automation.mobileprovision?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T105249Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=22034b3f49353c51daa5d7f10f8b1e15a1a2030cb32ad2de2097cdeb2310ceb5"
-  ENTITLEMENTS_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/AutomationEntitlements.plist?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T105249Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=bb368c3f4f3c3e87c2974ac14b0e9f722f4e0b997fd185d48b2ccd5f321695ca"
+  MOBILE_PROVISION_PROFILE_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Automation.mobileprovision?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T124834Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=4d3caeb2efd2fd9d9a8c34fb1acbfe0c46dacd72ccecebeafa6e141080ae59aa"
+  ENTITLEMENTS_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/AutomationEntitlements.plist?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T124834Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=b205198db8feaad15fdbfa3043dcf865cc37df6f63b17a3f089d1970365a23b6"
 #  CERTIFICATE_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/AutomationCert.p12?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T105249Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=166f8ca3ce6790c85f7cfae08a5941bd97c52d0dd71daa5874db178f77101816"
 #  CERTIFICATE_PASSWORD: "nf1101"
 
