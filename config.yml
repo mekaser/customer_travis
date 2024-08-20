@@ -1,5 +1,5 @@
 # config.yaml
-platform: "ANDROID"
+platform: "IOS"
 appdome_build:
   APP_FILE: "./files/FileFinder(3).ipa"
   APPDOME_API_TOKEN: "env_var.APPDOME_API_TOKEN"
