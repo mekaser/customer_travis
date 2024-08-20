@@ -12,7 +12,7 @@ appdome_build:
 #  BUILD_TO_TEST: "None"
 #  TEAM_ID: "None"
   APPDOME_SERVER_BASE_URL: "https://qamaster.dev.appdome.com/"
-  KEYSTORE_FILE: "./files/appdome(5).keystore"
+#  KEYSTORE_FILE: "./files/appdome(5).keystore"
   OUTPUT_APP_NAME: "mekaser_SIGN_ON_APPDOME.aab"
   KEYSTORE_PASSWORD: "appdome"
   KEYSTORE_ALIAS: "appdome"
