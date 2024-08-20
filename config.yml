@@ -1,7 +1,7 @@
 # config.yaml
 platform: "ANDROID"
 appdome_build:
-  APP_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Apps/FileFinder.aab?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240808%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240808T131047Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=921163132fe7277d2cd3dc14a3eb2874a3a27044e05fddfcbcdf453661000b6a"
+  APP_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Apps/FileFinder.aab?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T105249Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=5890f828871741b8c96da7c29d0a38197578d3b0ea65e9946b9d86ec83c9ac95"
   APPDOME_API_TOKEN: "env_var.APPDOME_API_TOKEN"
   SIGN_OPTIONS: "SIGN_ON_APPDOME"
 #  FUSION_SET_ID: "11c97910-5320-11ef-9f3f-cd47153b0ee7"
