@@ -1,5 +1,5 @@
 # config.yaml
-platform: "IOS"
+PLATFORM: "IOS"
 appdome_build:
   APP_FILE: "https://appdome-automation-vanilla-apps.s3.amazonaws.com/Thomas/PipelineFiles/Apps/FileFinder.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUMYEOMD5JGE4UVGR%2F20240820%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20240820T124834Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&X-Amz-Signature=ebdf5c1e395a8fb94aea7a6561659273a1026d96e031c48d4003f1ec5060036a"
   APPDOME_API_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWQ2Yzk4MzAtMTY5OC0xMWVmLWI2NDktMzM3Y2U1NzAwNDY3Iiwic2FsdCI6IjRmMjBjMTRjLWU1MWItNDQ3YS1hMjBjLTNmY2FiNGIxODFlYSJ9.AI5soWJrClObNzD1T0yy_hLWVfLGyam08fhQm5QT4qs"
