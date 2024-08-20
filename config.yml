@@ -8,7 +8,7 @@ appdome_build:
   FUSION_SET_ID: "a5f87440-5d68-11ef-b420-f99bf54807cc"
 #  SIGN_FINGERPRINT: "env_var.SIGN_FINGERPRINT"
 #  SECOND_OUTPUT: "true"
-  GOOGLE_PLAY_SIGNING: "true"
+#  GOOGLE_PLAY_SIGNING: "true"
 #  BUILD_TO_TEST: "None"
 #  TEAM_ID: "None"
   APPDOME_SERVER_BASE_URL: "https://qamaster.dev.appdome.com/"
